@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Zadan</title>
+    <link rel="stylesheet" href="stylestrony.css">
+</head>
+<body>
+    <div class="boxUp">
+        <h1>LISTA ZADAŃ</h1>
+    <table>
+        <tr th:each="zadanie : ${zadania}">
+            <td>
+                <p th:text="${zadanie.tresc}"></p>
+            </td>
+            <td>
+                <button>Edytuj</button>
+            </td>
+            <td>
+                <a th:href="@{/remove/{id} (id=${zadanie.id})}"><button class="buttonWykonane">Wykonaj</button></a>
+            </td>
+        </tr>
+    </table>
+
+    </div>
+    <div class="boxDown">
+        <a href="/add"><button class="buttonDodajZadanie">Dodaj nowe zadanie</button></a>
+    </div>
+</body>
+</html>
