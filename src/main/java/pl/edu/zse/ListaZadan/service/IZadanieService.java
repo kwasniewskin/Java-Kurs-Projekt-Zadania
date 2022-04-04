@@ -13,7 +13,11 @@ public interface IZadanieService {
 
     void removeZadanieById(Long id);
 
-    void editZadanie(Zadanie zadanie);
-
     void removeZadanieById(Integer id);
+
+    Zadanie getZadanieById(Long id);
+
+    Zadanie editZadanie(Zadanie zadanie);
+
+
 }

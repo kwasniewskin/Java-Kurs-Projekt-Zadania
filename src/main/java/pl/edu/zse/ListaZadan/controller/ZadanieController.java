@@ -36,4 +36,21 @@ public class ZadanieController {
         return "redirect:/";
     }
 
+    @GetMapping(path = "/edit/{id}")
+    public String editZadanie(@PathVariable Long id, Model model){
+        model.addAttribute("zadanie",zadanieService.getZadanieById(id));
+        return "edit";
+    }
+
+    @PostMapping(path = "/edit/{id}")
+    public String editZadaniePost(@PathVariable Long id,
+                                  @ModelAttribute("zadanie") Zadanie zadanie){
+        Zadanie existingZadanie = zadanieService.getZadanieById(id);
+        existingZadanie.setId(id);
+        existingZadanie.setTresc(zadanie.getTresc());
+
+        zadanieService.editZadanie(existingZadanie);
+        return "redirect:/";
+    }
+
 }

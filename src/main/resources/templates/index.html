@@ -14,7 +14,7 @@
                 <p th:text="${zadanie.tresc}"></p>
             </td>
             <td>
-                <button>Edytuj</button>
+                <a th:href="@{/edit/{id} (id=${zadanie.id})}"><button>Edytuj</button></a>
             </td>
             <td>
                 <a th:href="@{/remove/{id} (id=${zadanie.id})}"><button class="buttonWykonane">Wykonaj</button></a>

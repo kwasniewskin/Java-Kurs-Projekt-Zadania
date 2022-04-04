@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/stylestrony.css">
+    <title>Formularz Dodawania Zadania</title>
+</head>
+<body style="text-align: center">
+    <div style="margin-top: 10%">
+        <h2>EDYTUJ ZADANIE</h2>
+        <form th:action="@{/edit/{id} (id=${zadanie.id})}" method="post" th:object="${zadanie}">
+            <textarea th:field="*{tresc}" name="tresc" required rows="6" cols="50"></textarea> <br>
+            <button class="buttonAdd" type="submit">Edytuj</button>
+        </form>
+        <a href="/"><button class="buttonAdd">Anuluj</button></a>
+    </div>
+</body>
+</html>

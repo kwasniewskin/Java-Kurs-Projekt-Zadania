@@ -39,12 +39,19 @@ public class ZadanieService implements IZadanieService {
     }
 
     @Override
-    public void editZadanie(Zadanie zadanie) {
-        if(zadanieRepository.existsById(zadanie.getId())) zadanieRepository.save(zadanie);
-    }
-
-    @Override
     public void removeZadanieById(Integer id) {
 
     }
+
+    @Override
+    public Zadanie getZadanieById(Long id){
+        return zadanieRepository.findById(id).get();
+    }
+
+    @Override
+    public Zadanie editZadanie(Zadanie zadanie) {
+        return zadanieRepository.save(zadanie);
+    }
+
+
 }
